@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button_panier = new System.Windows.Forms.Button();
             this.textBox_prix = new System.Windows.Forms.TextBox();
             this.button_valider = new System.Windows.Forms.Button();
@@ -38,14 +37,10 @@
             this.button_fichier = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.actualise = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 410);
-            this.panel1.TabIndex = 0;
             // 
             // button_panier
             // 
@@ -89,6 +84,7 @@
             this.button_paiement.TabIndex = 5;
             this.button_paiement.Text = "Paiement";
             this.button_paiement.UseVisualStyleBackColor = true;
+            this.button_paiement.Click += new System.EventHandler(this.button_paiement_Click);
             // 
             // textBox_prixPanier
             // 
@@ -100,12 +96,13 @@
             // 
             // button_fichier
             // 
-            this.button_fichier.Location = new System.Drawing.Point(327, 478);
+            this.button_fichier.Location = new System.Drawing.Point(280, 457);
             this.button_fichier.Name = "button_fichier";
             this.button_fichier.Size = new System.Drawing.Size(183, 36);
             this.button_fichier.TabIndex = 7;
             this.button_fichier.Text = "Fichier";
             this.button_fichier.UseVisualStyleBackColor = true;
+            this.button_fichier.Click += new System.EventHandler(this.button_fichier_Click);
             // 
             // label1
             // 
@@ -125,11 +122,35 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Prix total (€)";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // actualise
+            // 
+            this.actualise.Location = new System.Drawing.Point(469, 446);
+            this.actualise.Name = "actualise";
+            this.actualise.Size = new System.Drawing.Size(121, 59);
+            this.actualise.TabIndex = 10;
+            this.actualise.Text = "Actualiser Fichier";
+            this.actualise.UseVisualStyleBackColor = true;
+            this.actualise.Click += new System.EventHandler(this.actualise_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 12);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 418);
+            this.flowLayoutPanel1.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 599);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.actualise);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_fichier);
@@ -139,7 +160,6 @@
             this.Controls.Add(this.button_valider);
             this.Controls.Add(this.textBox_prix);
             this.Controls.Add(this.button_panier);
-            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -149,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_panier;
         private System.Windows.Forms.TextBox textBox_prix;
         private System.Windows.Forms.Button button_valider;
@@ -160,6 +178,9 @@
         private System.Windows.Forms.Button button_fichier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button actualise;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
