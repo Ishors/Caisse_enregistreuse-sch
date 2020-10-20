@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_panier = new System.Windows.Forms.Button();
-            this.textBox_prix = new System.Windows.Forms.TextBox();
+            this.textBox_poids = new System.Windows.Forms.TextBox();
             this.button_valider = new System.Windows.Forms.Button();
             this.button_vider = new System.Windows.Forms.Button();
             this.button_paiement = new System.Windows.Forms.Button();
@@ -55,13 +55,14 @@
             this.button_panier.TabIndex = 1;
             this.button_panier.Text = "Panier";
             this.button_panier.UseVisualStyleBackColor = true;
+            this.button_panier.Click += new System.EventHandler(this.button_panier_Click);
             // 
-            // textBox_prix
+            // textBox_poids
             // 
-            this.textBox_prix.Location = new System.Drawing.Point(650, 156);
-            this.textBox_prix.Name = "textBox_prix";
-            this.textBox_prix.Size = new System.Drawing.Size(113, 22);
-            this.textBox_prix.TabIndex = 2;
+            this.textBox_poids.Location = new System.Drawing.Point(650, 156);
+            this.textBox_poids.Name = "textBox_poids";
+            this.textBox_poids.Size = new System.Drawing.Size(113, 22);
+            this.textBox_poids.TabIndex = 2;
             // 
             // button_valider
             // 
@@ -71,6 +72,7 @@
             this.button_valider.TabIndex = 3;
             this.button_valider.Text = "Valider article";
             this.button_valider.UseVisualStyleBackColor = true;
+            this.button_valider.Click += new System.EventHandler(this.button_valider_Click);
             // 
             // button_vider
             // 
@@ -80,6 +82,7 @@
             this.button_vider.TabIndex = 4;
             this.button_vider.Text = "Vider article";
             this.button_vider.UseVisualStyleBackColor = true;
+            this.button_vider.Click += new System.EventHandler(this.button_vider_Click);
             // 
             // button_paiement
             // 
@@ -137,7 +140,7 @@
             this.Controls.Add(this.button_paiement);
             this.Controls.Add(this.button_vider);
             this.Controls.Add(this.button_valider);
-            this.Controls.Add(this.textBox_prix);
+            this.Controls.Add(this.textBox_poids);
             this.Controls.Add(this.button_panier);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -152,7 +155,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_panier;
-        private System.Windows.Forms.TextBox textBox_prix;
+        private System.Windows.Forms.TextBox textBox_poids;
         private System.Windows.Forms.Button button_valider;
         private System.Windows.Forms.Button button_vider;
         private System.Windows.Forms.Button button_paiement;
