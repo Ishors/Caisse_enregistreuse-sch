@@ -3,29 +3,22 @@
   <Class Name="CaisseEnregistreuse.Form1" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAABAAAACAAAACAAYAAAgAgAQEEQAAAIA=</HashCode>
+      <HashCode>AAAAAAAAACAAABQAAACAAAACAAYAAAgAAAAEEQAAAIA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.ReadingProducts">
-    <Position X="2.25" Y="2.25" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ReadingProducts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.CalculPrice">
-    <Position X="4.75" Y="2.25" Width="1.5" />
+    <Position X="4" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CalculPrice.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CaisseEnregistreuse.Panier">
-    <Position X="2.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Panier.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.WriteTicket">
@@ -40,6 +33,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Display.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CaisseEnregistreuse.Panier">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAACAAAAABAAAAAAAAAIAEAAAAAQA=</HashCode>
+      <FileName>Panier.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
