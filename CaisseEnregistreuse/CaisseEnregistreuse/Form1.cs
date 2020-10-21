@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,16 @@ namespace CaisseEnregistreuse
         private Dictionary<string, double> dicProdPrice; // Dictionnaire de stockage après lecture du fichier csv
         private List<Button> listButton; // Liste des boutons créés à partir du fichier csv et du dictionnaire précédent
 
+        private Dictionary<string, double> dicarticlesaisis;
         public List<string> DernierProduit { get => dernierProduit; set => dernierProduit = value; }
+        public string Produit { get => produit; set => produit = value; }
 
         public Form1()
         {
             InitializeComponent();
             // Initialisation de notre liste de dernierProduit
             dernierProduit = new List<string>();
+            dicarticlesaisis = new Dictionary<string, double>(); 
         }
 
         // Cette méthode permet de recolorer en noir 
@@ -46,21 +50,50 @@ namespace CaisseEnregistreuse
            
         }
 
+        private void AfficherListe()
+        {
+            flowLayoutPanel2.Controls.Clear();
+            foreach (var kvp in panier.PanierEnCours)
+            {
+                TextBox tb = new TextBox();
+                tb.Text = "***: " + kvp.Key + "***Price: " + kvp.Value+ " € ****";
+                tb.Width = 200;
+                flowLayoutPanel2.Controls.Add(tb); 
+            }
+        }
+
         private void button_valider_Click(object sender, EventArgs e)
         {
             // Le prix est enregistré et bloqué et on modifie le dictionnaire du panier
             try
             {
                 poids = Double.Parse(textBox_poids.Text);
-                panier.valider(produit, poids * prixKg);
+                if (this.produit != null)  
+                {
+                    if (panier.PanierEnCours.TryGetValue(produit, out var nimp) == false)
+                    {
+                        panier.valider(produit, poids * prixKg);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produit similaire sélectionné");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Aucun produit selectionné");
+                }
+                this.AfficherListe(); 
                 // On récupère le dernier produit entré pour pouvoir supprimer le dernier article si besoin
                 dernierProduit.Add(produit);
                 // On modifie l'affichage de notre prix total du panier
                 textBox_prixPanier.Text = panier.PrixPanier.ToString();
+                
             }
             catch (System.FormatException)
             {
-                if (produit.Equals(""))
+                if (produit == null)
                 {
                     MessageBox.Show("Veuillez entrer un produit");
                 }
@@ -70,7 +103,7 @@ namespace CaisseEnregistreuse
                 }
             }
             // On réinitialise nos variables
-            produit = "";
+            produit = null;
             poids = 0;
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
@@ -79,10 +112,13 @@ namespace CaisseEnregistreuse
         private void button_panier_Click(object sender, EventArgs e)
         {
             // Réinitialisation de l'interface
-            produit = "";
             textBox_poids.Text = "";
             textBox_prixPanier.Text = "";
             this.colorBlack();
+            produit = null; 
+
+            //vide l'affichage des articles saisie
+            flowLayoutPanel2.Controls.Clear(); 
 
             // Création du panier
             panier = new Panier();
@@ -110,8 +146,10 @@ namespace CaisseEnregistreuse
                 panier.vider(dernierProduit[dernierProduit.Count - 1]);
                 dernierProduit.RemoveAt(dernierProduit.Count - 1);
                 textBox_prixPanier.Text = panier.PrixPanier.ToString();
+                this.AfficherListe(); 
+
                 // Décolore le bouton qui a été coloré lors du clic (et tout les autres d'ailleurs)
-                Color black = Color.Black;
+                                Color black = Color.Black;
                 for (int i = 0; i < listButton.Count(); i++)
                 {
                     listButton[i].ForeColor = black;
@@ -121,7 +159,7 @@ namespace CaisseEnregistreuse
             {
                 MessageBox.Show("Aucun produit dans le panier");
             }
-            produit = "";
+            produit = null;
             this.colorBlack();
         }
 
@@ -141,8 +179,9 @@ namespace CaisseEnregistreuse
                 // Chaque bouton est ajouté à notre listButton
                 listButton.Add(new Button());
                 // Le Text de chaque bouton est composé du nom du produit ainsi que de son prix au kg
-                listButton.Last().Text = kvp.Key + "\n" + kvp.Value.ToString();
+                listButton.Last().Text = kvp.Key + "\n" + kvp.Value.ToString() +" (€/kg)";
                 listButton.Last().AutoSize = true;
+                listButton.Last().Padding = new Padding(15);
                 // On ajoute ici le bouton au flowLayoutPanel dédié
                 flowLayoutPanel1.Controls.Add(listButton.Last());
                 // On lie le bouton à sa méthode b_Click
@@ -170,14 +209,14 @@ namespace CaisseEnregistreuse
             // Ici on récupère le nom du produit et son prix au kg
             string[] substring = (sender as Button).Text.Split('\n');
             produit = substring[0];
-            prixKg = Double.Parse(substring[1]);
+
+            string[] substring2 = substring[1].Split('('); 
+            prixKg = Double.Parse(substring2[0]);
             // On recolore tous les autres boutons articles en noir
             this.colorBlack();
             // Puis on colore le bouton sélectionné en rouge
             Color red = Color.Red;
             (sender as Button).ForeColor = red;
-
-
         }
 
         private void button_fichier_Click(object sender, EventArgs e)

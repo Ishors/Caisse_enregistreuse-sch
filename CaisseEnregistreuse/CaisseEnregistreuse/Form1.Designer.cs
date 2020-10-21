@@ -40,14 +40,15 @@
             this.actualise = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // button_panier
             // 
             this.button_panier.Enabled = false;
-            this.button_panier.Location = new System.Drawing.Point(650, 27);
+            this.button_panier.Location = new System.Drawing.Point(783, 21);
             this.button_panier.Name = "button_panier";
-            this.button_panier.Size = new System.Drawing.Size(113, 85);
+            this.button_panier.Size = new System.Drawing.Size(157, 108);
             this.button_panier.TabIndex = 1;
             this.button_panier.Text = "Panier";
             this.button_panier.UseVisualStyleBackColor = true;
@@ -56,17 +57,17 @@
             // textBox_poids
             // 
             this.textBox_poids.Enabled = false;
-            this.textBox_poids.Location = new System.Drawing.Point(650, 156);
+            this.textBox_poids.Location = new System.Drawing.Point(783, 178);
             this.textBox_poids.Name = "textBox_poids";
-            this.textBox_poids.Size = new System.Drawing.Size(113, 22);
+            this.textBox_poids.Size = new System.Drawing.Size(157, 22);
             this.textBox_poids.TabIndex = 2;
             // 
             // button_valider
             // 
             this.button_valider.Enabled = false;
-            this.button_valider.Location = new System.Drawing.Point(650, 219);
+            this.button_valider.Location = new System.Drawing.Point(783, 219);
             this.button_valider.Name = "button_valider";
-            this.button_valider.Size = new System.Drawing.Size(112, 58);
+            this.button_valider.Size = new System.Drawing.Size(172, 52);
             this.button_valider.TabIndex = 3;
             this.button_valider.Text = "Valider article";
             this.button_valider.UseVisualStyleBackColor = true;
@@ -75,9 +76,9 @@
             // button_vider
             // 
             this.button_vider.Enabled = false;
-            this.button_vider.Location = new System.Drawing.Point(650, 314);
+            this.button_vider.Location = new System.Drawing.Point(783, 375);
             this.button_vider.Name = "button_vider";
-            this.button_vider.Size = new System.Drawing.Size(112, 27);
+            this.button_vider.Size = new System.Drawing.Size(172, 55);
             this.button_vider.TabIndex = 4;
             this.button_vider.Text = "Vider article";
             this.button_vider.UseVisualStyleBackColor = true;
@@ -86,9 +87,9 @@
             // button_paiement
             // 
             this.button_paiement.Enabled = false;
-            this.button_paiement.Location = new System.Drawing.Point(631, 434);
+            this.button_paiement.Location = new System.Drawing.Point(783, 512);
             this.button_paiement.Name = "button_paiement";
-            this.button_paiement.Size = new System.Drawing.Size(132, 95);
+            this.button_paiement.Size = new System.Drawing.Size(172, 139);
             this.button_paiement.TabIndex = 5;
             this.button_paiement.Text = "Paiement";
             this.button_paiement.UseVisualStyleBackColor = true;
@@ -96,7 +97,7 @@
             // textBox_prixPanier
             // 
             this.textBox_prixPanier.Enabled = false;
-            this.textBox_prixPanier.Location = new System.Drawing.Point(12, 485);
+            this.textBox_prixPanier.Location = new System.Drawing.Point(68, 629);
             this.textBox_prixPanier.Name = "textBox_prixPanier";
             this.textBox_prixPanier.ReadOnly = true;
             this.textBox_prixPanier.Size = new System.Drawing.Size(231, 22);
@@ -104,9 +105,9 @@
             // 
             // button_fichier
             // 
-            this.button_fichier.Location = new System.Drawing.Point(280, 457);
+            this.button_fichier.Location = new System.Drawing.Point(423, 592);
             this.button_fichier.Name = "button_fichier";
-            this.button_fichier.Size = new System.Drawing.Size(183, 36);
+            this.button_fichier.Size = new System.Drawing.Size(140, 59);
             this.button_fichier.TabIndex = 7;
             this.button_fichier.Text = "Fichier";
             this.button_fichier.UseVisualStyleBackColor = true;
@@ -116,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(669, 131);
+            this.label1.Location = new System.Drawing.Point(828, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 8;
@@ -126,7 +127,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(12, 452);
+            this.label2.Location = new System.Drawing.Point(43, 609);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 17);
             this.label2.TabIndex = 9;
@@ -135,9 +136,9 @@
             // actualise
             // 
             this.actualise.Enabled = false;
-            this.actualise.Location = new System.Drawing.Point(469, 446);
+            this.actualise.Location = new System.Drawing.Point(584, 592);
             this.actualise.Name = "actualise";
-            this.actualise.Size = new System.Drawing.Size(121, 59);
+            this.actualise.Size = new System.Drawing.Size(140, 59);
             this.actualise.TabIndex = 10;
             this.actualise.Text = "Actualiser Fichier";
             this.actualise.UseVisualStyleBackColor = true;
@@ -148,7 +149,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 418);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(713, 373);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
             // openFileDialog1
@@ -156,11 +157,19 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(15, 391);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(713, 198);
+            this.flowLayoutPanel2.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 599);
+            this.ClientSize = new System.Drawing.Size(988, 688);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.actualise);
             this.Controls.Add(this.label2);
@@ -193,6 +202,7 @@
         private System.Windows.Forms.Button actualise;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
 

@@ -12,13 +12,12 @@ namespace CaisseEnregistreuse
         private Boolean ok = false;
         private Dictionary<string,double> panierEnCours = new Dictionary<string, double>();
         private double prixPanier;
-
+ 
         public Dictionary<string, double> PanierEnCours { get => panierEnCours; set => panierEnCours = value; }
         public double PrixPanier { get => prixPanier; set => prixPanier = value; }
 
         public Panier()
         {
-
         }
 
         public void open()
