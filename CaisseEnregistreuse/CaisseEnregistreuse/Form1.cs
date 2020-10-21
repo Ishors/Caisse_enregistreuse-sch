@@ -17,6 +17,8 @@ namespace CaisseEnregistreuse
         double poids;
         CalculPrice calcul;
         string dernierLegume;
+        private ReadingProducts rp; //Objet de la classe Reading Poducts
+        private Dictionary<string, double> dicProdPrice; 
 
         public string DernierLegume { get => dernierLegume; set => dernierLegume = value; }
 
@@ -56,6 +58,35 @@ namespace CaisseEnregistreuse
         private void button_vider_Click(object sender, EventArgs e)
         {
             panier.PanierEnCours.Remove(dernierLegume);
+        }
+
+        private void actualise_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear(); 
+            rp = new ReadingProducts(openFileDialog1.FileName);
+            //dicProdPrice dictionnaire Products_Price prends "Produit","prix" 
+            this.dicProdPrice = rp.createDictionaryProducts();
+            List<Button> listebutton = new List<Button>();
+            foreach (var kvp in dicProdPrice)
+            {
+                Button b = new Button();
+                b.Text = kvp.Key + "\n" + kvp.Value.ToString();
+                b.AutoSize=true; 
+                flowLayoutPanel1.Controls.Add(b);
+            }
+        }
+
+        private void button_fichier_Click(object sender, EventArgs e)
+        {
+            //si on appui sur fichier, on ouvre fenetre dialogue
+            //retourne un openFileDialog1.FileName
+            openFileDialog1.ShowDialog();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            //ouverture de l'excel 
+            System.Diagnostics.Process.Start(openFileDialog1.FileName);
         }
     }
 }

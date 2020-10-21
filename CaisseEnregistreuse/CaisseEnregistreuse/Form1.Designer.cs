@@ -37,9 +37,9 @@
             this.button_fichier = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.actualise = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button_panier
@@ -87,7 +87,6 @@
             this.button_paiement.TabIndex = 5;
             this.button_paiement.Text = "Paiement";
             this.button_paiement.UseVisualStyleBackColor = true;
-            this.button_paiement.Click += new System.EventHandler(this.button_paiement_Click);
             // 
             // textBox_prixPanier
             // 
@@ -125,11 +124,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Prix total (€)";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
             // actualise
             // 
             this.actualise.Location = new System.Drawing.Point(469, 446);
@@ -142,10 +136,16 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 418);
             this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // Form1
             // 
@@ -181,9 +181,9 @@
         private System.Windows.Forms.Button button_fichier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button actualise;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
