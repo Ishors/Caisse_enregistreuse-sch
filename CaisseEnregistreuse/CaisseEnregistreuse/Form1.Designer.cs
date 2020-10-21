@@ -44,6 +44,7 @@
             // 
             // button_panier
             // 
+            this.button_panier.Enabled = false;
             this.button_panier.Location = new System.Drawing.Point(650, 27);
             this.button_panier.Name = "button_panier";
             this.button_panier.Size = new System.Drawing.Size(113, 85);
@@ -54,6 +55,7 @@
             // 
             // textBox_poids
             // 
+            this.textBox_poids.Enabled = false;
             this.textBox_poids.Location = new System.Drawing.Point(650, 156);
             this.textBox_poids.Name = "textBox_poids";
             this.textBox_poids.Size = new System.Drawing.Size(113, 22);
@@ -61,6 +63,7 @@
             // 
             // button_valider
             // 
+            this.button_valider.Enabled = false;
             this.button_valider.Location = new System.Drawing.Point(650, 219);
             this.button_valider.Name = "button_valider";
             this.button_valider.Size = new System.Drawing.Size(112, 58);
@@ -71,6 +74,7 @@
             // 
             // button_vider
             // 
+            this.button_vider.Enabled = false;
             this.button_vider.Location = new System.Drawing.Point(650, 314);
             this.button_vider.Name = "button_vider";
             this.button_vider.Size = new System.Drawing.Size(112, 27);
@@ -81,6 +85,7 @@
             // 
             // button_paiement
             // 
+            this.button_paiement.Enabled = false;
             this.button_paiement.Location = new System.Drawing.Point(631, 434);
             this.button_paiement.Name = "button_paiement";
             this.button_paiement.Size = new System.Drawing.Size(132, 95);
@@ -90,6 +95,7 @@
             // 
             // textBox_prixPanier
             // 
+            this.textBox_prixPanier.Enabled = false;
             this.textBox_prixPanier.Location = new System.Drawing.Point(12, 485);
             this.textBox_prixPanier.Name = "textBox_prixPanier";
             this.textBox_prixPanier.ReadOnly = true;
@@ -109,6 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Location = new System.Drawing.Point(669, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 17);
@@ -118,6 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Location = new System.Drawing.Point(12, 452);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 17);
@@ -126,6 +134,7 @@
             // 
             // actualise
             // 
+            this.actualise.Enabled = false;
             this.actualise.Location = new System.Drawing.Point(469, 446);
             this.actualise.Name = "actualise";
             this.actualise.Size = new System.Drawing.Size(121, 59);

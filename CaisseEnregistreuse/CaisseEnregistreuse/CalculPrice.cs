@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CaisseEnregistreuse
 {
-    public class CalculPrice
+    public class CalculPrice : Panier
     {
         public CalculPrice()
         {
@@ -14,13 +14,12 @@ namespace CaisseEnregistreuse
 
         public double calculerPrixTotal()
         {
-            Panier panier = new Panier();
-            foreach (var kvp in panier.PanierEnCours)
+            foreach (var kvp in this.PanierEnCours)
             {
-                panier.PrixPanier += kvp.Value;
+                this.PrixPanier += kvp.Value;
             }
             
-            return panier.PrixPanier;
+            return this.PrixPanier;
         }
     }
 }

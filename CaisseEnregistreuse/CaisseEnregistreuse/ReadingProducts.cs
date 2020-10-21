@@ -17,9 +17,17 @@ namespace CaisseEnregistreuse
         {
             //cherche le nom du fichier dans le dossier pour rentrer le chemin d'accés complet
             this.filepathFull = Path.GetFullPath(filepath);
-         
+
             //ouvre fichier csv
-            reader = new System.IO.StreamReader(filepathFull); 
+            try
+            {
+                reader = new StreamReader(filepathFull);
+            }
+            catch (FileNotFoundException)
+            {
+                System.Windows.Forms.MessageBox.Show("Veuillez d'abord choisir un fichier ");
+            }
+             
         }
 
         
@@ -28,12 +36,16 @@ namespace CaisseEnregistreuse
         {
             Dictionary<string, double> dicprodprice = new Dictionary<string, double>();
             while (!reader.EndOfStream)
-            {
-                //lit chaque ligne et insère dans le dictionnaire <> Product,Price
-                var line = reader.ReadLine();
-                var values = line.Split(';');
-                dicprodprice.Add(values[0], double.Parse(values[1])); 
-            }
+                {
+                    //lit chaque ligne et insère dans le dictionnaire <> Product,Price
+                    var line = reader.ReadLine();
+                    var values = line.Split(';');
+                    dicprodprice.Add(values[0], double.Parse(values[1]));
+                }
+
+
+            
+            
             reader.Close();
             return dicprodprice;
         }

@@ -21,18 +21,32 @@ namespace CaisseEnregistreuse
 
         }
 
-
         public void open()
         {
             this.ok = true;
             panierEnCours.Clear();
         }
 
-        public void valider(string legume, double poids)
+        public void valider(string produit, double prix)
         {
-            //On rentrent notre légume et sa quantité dans notre dictionary panierEnCours
-            this.panierEnCours.Add(legume, poids);
-      }
+            this.prixPanier = 0;
+            // On rentrent notre produit et sa quantité dans notre dictionary panierEnCours
+            this.panierEnCours.Add(produit, prix);
+            // Et on additione le prix du produit à celui du panier
+            foreach (var kvp in this.PanierEnCours)
+            {
+                this.PrixPanier += kvp.Value;
+            }
+        }
+
+        public void vider(string dernierProduit)
+        {
+            // On soustrait le prix du dernier produit à celui du panier
+            panierEnCours.TryGetValue(dernierProduit, out double dernierPrix);
+            this.PrixPanier -= dernierPrix;
+            panierEnCours.Remove(dernierProduit);
+        }
+
         public void close()
         {
             this.ok = false;
