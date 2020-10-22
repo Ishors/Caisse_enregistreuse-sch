@@ -23,6 +23,7 @@ namespace CaisseEnregistreuse
         private List<Button> listButton; // Liste des boutons créés à partir du fichier csv et du dictionnaire précédent
 
         private Dictionary<string, double> dicarticlesaisis;
+        
         public List<string> DernierProduit { get => dernierProduit; set => dernierProduit = value; }
         public string Produit { get => produit; set => produit = value; }
 
@@ -31,7 +32,7 @@ namespace CaisseEnregistreuse
             InitializeComponent();
             // Initialisation de notre liste de dernierProduit
             dernierProduit = new List<string>();
-            dicarticlesaisis = new Dictionary<string, double>(); 
+            dicarticlesaisis = new Dictionary<string, double>();
         }
 
         // Cette méthode permet de recolorer en noir 
@@ -50,14 +51,23 @@ namespace CaisseEnregistreuse
            
         }
 
+        //Fonction qui affiche le panier dans les texts boxs
+        //Appelée à chaque validation article
         private void AfficherListe()
         {
+            //on vide les texts boxs précédente pour les re-remplir avec le nouveau dictionnaire
+            //comme ça on gère aussi le vidage
             flowLayoutPanel2.Controls.Clear();
+
             foreach (var kvp in panier.PanierEnCours)
             {
                 TextBox tb = new TextBox();
-                tb.Text = "***: " + kvp.Key + "***Price: " + kvp.Value+ " € ****";
-                tb.Width = 200;
+                //on récupère le poids unitaire de l'article pour afficher le total du poids saisie
+                //si un article est saisi plusieur fois, les poids s'additionnent
+                double poidsunitart = dicProdPrice[kvp.Key];
+                double nbkgsaisis = kvp.Value / poidsunitart;
+                tb.Text = "___" + kvp.Key + " _____ " + nbkgsaisis + " Kg _____ " + +kvp.Value + " € ____";
+                tb.Width = 250; 
                 flowLayoutPanel2.Controls.Add(tb); 
             }
         }
@@ -68,18 +78,12 @@ namespace CaisseEnregistreuse
             try
             {
                 poids = Double.Parse(textBox_poids.Text);
+                //si produit n'est pas nul
                 if (this.produit != null)  
                 {
-                    if (panier.PanierEnCours.TryGetValue(produit, out var nimp) == false)
-                    {
-                        panier.valider(produit, poids * prixKg);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produit similaire sélectionné");
-                    }
-
+                    panier.valider(produit, poids * prixKg);
                 }
+                //si produit null, on affiche MsgBox
                 else
                 {
                     MessageBox.Show("Aucun produit selectionné");
@@ -115,8 +119,8 @@ namespace CaisseEnregistreuse
             textBox_poids.Text = "";
             textBox_prixPanier.Text = "";
             this.colorBlack();
-            produit = null; 
-
+            produit = null;
+            
             //vide l'affichage des articles saisie
             flowLayoutPanel2.Controls.Clear(); 
 
@@ -136,6 +140,9 @@ namespace CaisseEnregistreuse
             button_paiement.Enabled = true;
             label2.Enabled = true;
             textBox_prixPanier.Enabled = true;
+            flowLayoutPanel2.Enabled = true; 
+
+            panier.Inc = 1; 
         }
 
         private void button_vider_Click(object sender, EventArgs e)
@@ -201,7 +208,7 @@ namespace CaisseEnregistreuse
             label2.Enabled = false;
             textBox_prixPanier.Enabled = false;
             textBox_prixPanier.Text = "";
-
+            
         }
         
         private void b_Click(object sender, EventArgs e)

@@ -12,9 +12,12 @@ namespace CaisseEnregistreuse
         private Boolean ok = false;
         private Dictionary<string,double> panierEnCours = new Dictionary<string, double>();
         private double prixPanier;
- 
+        private int inc; 
+
+
         public Dictionary<string, double> PanierEnCours { get => panierEnCours; set => panierEnCours = value; }
         public double PrixPanier { get => prixPanier; set => prixPanier = value; }
+        public int Inc { get => inc; set => inc = value; }
 
         public Panier()
         {
@@ -29,8 +32,16 @@ namespace CaisseEnregistreuse
         public void valider(string produit, double prix)
         {
             this.prixPanier = 0;
-            // On rentrent notre produit et sa quantité dans notre dictionary panierEnCours
-            this.panierEnCours.Add(produit, prix);
+
+            if (PanierEnCours.TryGetValue(produit, out var nimp) == false)
+            {
+                // On rentrent notre produit et sa quantité dans notre dictionary panierEnCours
+                this.panierEnCours.Add(produit, prix);
+            }else //si le produit a déjà été saisie, on addition le nouveau poids 
+            {
+                panierEnCours[produit] += prix; 
+            }
+                       
             // Et on additione le prix du produit à celui du panier
             foreach (var kvp in this.PanierEnCours)
             {
