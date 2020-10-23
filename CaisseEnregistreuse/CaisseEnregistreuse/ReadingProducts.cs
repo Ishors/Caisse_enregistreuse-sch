@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
 {
@@ -12,6 +14,7 @@ namespace CaisseEnregistreuse
         StreamReader reader;
         private bool lecturefile;
         public bool Lecturefile { get => lecturefile; set => lecturefile = value; }
+        public StreamReader Reader { get => reader; set => reader = value; }
 
         public ReadingProducts(string filepath) //constructeur avec le nom du ficher provenant de form1
         {
@@ -23,11 +26,11 @@ namespace CaisseEnregistreuse
             {
                 reader = new StreamReader(filepathFull);
             }
-            catch (FileNotFoundException)
+            catch (Exception)
             {
-                System.Windows.Forms.MessageBox.Show("Veuillez d'abord choisir un fichier ");
+                MessageBox.Show("Veuillez d'abord choisir un fichier ");
             }
-             
+    
         }
 
         
@@ -35,18 +38,18 @@ namespace CaisseEnregistreuse
         public Dictionary<string, double> createDictionaryProducts()
         {
             Dictionary<string, double> dicprodprice = new Dictionary<string, double>();
-            while (!reader.EndOfStream)
+            if (reader != null)
+            {
+                while (!reader.EndOfStream)
                 {
                     //lit chaque ligne et insère dans le dictionnaire <> Product,Price
                     var line = reader.ReadLine();
                     var values = line.Split(';');
                     dicprodprice.Add(values[0], double.Parse(values[1]));
                 }
-
-
+                reader.Close();
+            }
             
-            
-            reader.Close();
             return dicprodprice;
         }
     }

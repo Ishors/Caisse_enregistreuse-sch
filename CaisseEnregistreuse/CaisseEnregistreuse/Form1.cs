@@ -68,8 +68,9 @@ namespace CaisseEnregistreuse
                 double poidsunitart = dicProdPrice[kvp.Key];
                 double nbkgsaisis = kvp.Value / poidsunitart;
                 tb.Text = "___" + kvp.Key + " _____ " + nbkgsaisis + " Kg _____ " + +kvp.Value + " € ____";
-                tb.Width = 250; 
-                flowLayoutPanel2.Controls.Add(tb); 
+                tb.Width = 250;
+                tb.ReadOnly = true;
+                flowLayoutPanel2.Controls.Add(tb);
             }
         }
 
@@ -205,7 +206,10 @@ namespace CaisseEnregistreuse
                 listButton.Last().Enabled = false;
             }
             // Débloquage du bouton panier
-            button_panier.Enabled = true;
+            if (rp.Reader != null)
+            {
+                button_panier.Enabled = true;
+            }
             // Bloquage des autres boutons si activés
             label1.Enabled = false;
             textBox_poids.Enabled = false;
@@ -216,7 +220,7 @@ namespace CaisseEnregistreuse
             label2.Enabled = false;
             textBox_prixPanier.Enabled = false;
             textBox_prixPanier.Text = "";
-            
+            flowLayoutPanel2.Controls.Clear();
         }
         
         private void b_Click(object sender, EventArgs e)
@@ -238,6 +242,25 @@ namespace CaisseEnregistreuse
         {
             // Si on appui sur fichier, on ouvre fenetre dialogue
             openFileDialog1.ShowDialog();
+            // Bloquage des autres boutons si activés
+            if (listButton !=null && listButton.Any())
+            {
+                for (int i = 0; i < listButton.Count(); i++)
+                {
+                    listButton[i].Enabled = false;
+                }
+            }
+            button_panier.Enabled = false;
+            label1.Enabled = false;
+            textBox_poids.Enabled = false;
+            textBox_poids.Text = "";
+            button_valider.Enabled = false;
+            button_vider.Enabled = false;
+            button_paiement.Enabled = false;
+            label2.Enabled = false;
+            textBox_prixPanier.Enabled = false;
+            textBox_prixPanier.Text = "";
+            flowLayoutPanel2.Controls.Clear();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

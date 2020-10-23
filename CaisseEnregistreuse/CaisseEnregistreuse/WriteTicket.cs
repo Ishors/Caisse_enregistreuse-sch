@@ -11,8 +11,6 @@ namespace CaisseEnregistreuse
         private Dictionary<string, double> panierpaye;
         private double prixpanier; 
         private System.IO.StreamWriter writer;
-  
-       
 
         public WriteTicket(Dictionary<string, double> panierencours,Dictionary<string,double> dicarticle,double prixpanier)
         {
