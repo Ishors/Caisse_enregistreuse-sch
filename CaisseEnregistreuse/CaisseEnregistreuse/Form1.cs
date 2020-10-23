@@ -111,7 +111,7 @@ namespace CaisseEnregistreuse
             produit = null;
             poids = 0;
             //initialisation de la classe WriteTicket qui prendra le nouveau ticket
-            writeticket = new WriteTicket(panier.PanierEnCours,dicProdPrice); 
+            writeticket = new WriteTicket(panier.PanierEnCours,dicProdPrice,panier.PrixPanier); 
 
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
@@ -147,8 +147,8 @@ namespace CaisseEnregistreuse
             flowLayoutPanel2.Enabled = true; 
 
             panier.Inc = 1;
-            //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
-            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice);
+            //initialisation de la classe WriteTicket qui prendra le nouveau ticket
+            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
         }
 
         private void button_vider_Click(object sender, EventArgs e)
@@ -174,7 +174,7 @@ namespace CaisseEnregistreuse
             }
             produit = null;
             //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
-            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice);
+            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
             this.colorBlack();
         }
 
