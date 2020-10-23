@@ -93,6 +93,7 @@
             this.button_paiement.TabIndex = 5;
             this.button_paiement.Text = "Paiement";
             this.button_paiement.UseVisualStyleBackColor = true;
+            this.button_paiement.Click += new System.EventHandler(this.button_paiement_Click);
             // 
             // textBox_prixPanier
             // 

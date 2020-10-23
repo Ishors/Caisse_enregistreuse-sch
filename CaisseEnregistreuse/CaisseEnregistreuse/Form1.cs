@@ -21,11 +21,12 @@ namespace CaisseEnregistreuse
         private ReadingProducts rp; // Objet de la classe Reading Poducts
         private Dictionary<string, double> dicProdPrice; // Dictionnaire de stockage après lecture du fichier csv
         private List<Button> listButton; // Liste des boutons créés à partir du fichier csv et du dictionnaire précédent
-
         private Dictionary<string, double> dicarticlesaisis;
+        private WriteTicket writeticket; 
         
         public List<string> DernierProduit { get => dernierProduit; set => dernierProduit = value; }
         public string Produit { get => produit; set => produit = value; }
+        public Dictionary<string, double> Dicarticlesaisis { get => dicarticlesaisis; set => dicarticlesaisis = value; }
 
         public Form1()
         {
@@ -109,6 +110,9 @@ namespace CaisseEnregistreuse
             // On réinitialise nos variables
             produit = null;
             poids = 0;
+            //initialisation de la classe WriteTicket qui prendra le nouveau ticket
+            writeticket = new WriteTicket(panier.PanierEnCours,dicProdPrice); 
+
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
         }
@@ -142,7 +146,9 @@ namespace CaisseEnregistreuse
             textBox_prixPanier.Enabled = true;
             flowLayoutPanel2.Enabled = true; 
 
-            panier.Inc = 1; 
+            panier.Inc = 1;
+            //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
+            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice);
         }
 
         private void button_vider_Click(object sender, EventArgs e)
@@ -167,6 +173,8 @@ namespace CaisseEnregistreuse
                 MessageBox.Show("Aucun produit dans le panier");
             }
             produit = null;
+            //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
+            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice);
             this.colorBlack();
         }
 
@@ -238,6 +246,11 @@ namespace CaisseEnregistreuse
             System.Diagnostics.Process.Start(openFileDialog1.FileName);
             // Débloquage du bouton actualiser une fois le fichier choisi et modifié
             actualise.Enabled = true;
+        }
+
+        private void button_paiement_Click(object sender, EventArgs e)
+        {
+            writeticket.Writeinfile(); 
         }
     }
 }
