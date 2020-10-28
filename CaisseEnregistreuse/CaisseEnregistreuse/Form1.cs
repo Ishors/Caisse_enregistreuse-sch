@@ -68,7 +68,9 @@ namespace CaisseEnregistreuse
                 double poidsunitart = dicProdPrice[kvp.Key];
                 double nbkgsaisis = kvp.Value / poidsunitart;
                 tb.Text = "___" + kvp.Key + " _____ " + nbkgsaisis + " Kg _____ " + +kvp.Value + " € ____";
-                tb.Width = 250;
+                Color blue = Color.GreenYellow; 
+                tb.BackColor= blue;
+                tb.Width=250; 
                 tb.ReadOnly = true;
                 flowLayoutPanel2.Controls.Add(tb);
             }

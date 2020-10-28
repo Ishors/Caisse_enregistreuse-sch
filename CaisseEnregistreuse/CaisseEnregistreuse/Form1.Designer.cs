@@ -163,9 +163,9 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(15, 391);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(445, 391);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(846, 193);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(416, 193);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
             // lastTicket
