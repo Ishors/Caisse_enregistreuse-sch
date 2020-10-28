@@ -95,7 +95,6 @@ namespace CaisseEnregistreuse
                 dernierProduit.Add(produit);
                 // On modifie l'affichage de notre prix total du panier
                 textBox_prixPanier.Text = panier.PrixPanier.ToString();
-                
             }
             catch (System.FormatException)
             {
@@ -274,6 +273,16 @@ namespace CaisseEnregistreuse
         private void button_paiement_Click(object sender, EventArgs e)
         {
             writeticket.Writeinfile(); 
+        }
+
+        private void lastTicket_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"ticket.txt");
+        }
+
+        private void allTickets_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"ticketregister.txt");
         }
     }
 }
