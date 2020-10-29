@@ -3,42 +3,35 @@
   <Class Name="CaisseEnregistreuse.Form1" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAABQAAACAAAACAAYAAAgAAAAEEQAAAIA=</HashCode>
+      <HashCode>QoACAAAABjgAABQiAACAQgBCwIYJACRAAAQEkwFIgIE=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.ReadingProducts">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAYAAAAEAEAAAAAAAAAAAAAAAAAAABAAAAAQAAA=</HashCode>
       <FileName>ReadingProducts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.CalculPrice">
-    <Position X="4" Y="2.25" Width="1.5" />
+    <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>CalculPrice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.WriteTicket">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAICAAAAABAAAgAAgQAAAAAAAAA=</HashCode>
       <FileName>WriteTicket.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CaisseEnregistreuse.Display">
-    <Position X="2.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Display.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaisseEnregistreuse.Panier">
     <Position X="6.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAACAAAAABAAAAAAAAAIAEAAAAAQA=</HashCode>
+      <HashCode>AAIAIAACAACAAAAAACAAAAABAACAAAAAAJAAAAAAASA=</HashCode>
       <FileName>Panier.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -53,7 +53,11 @@ namespace CaisseEnregistreuse
         {
             // On soustrait le prix du dernier produit à celui du panier
             panierEnCours.TryGetValue(dernierProduit, out double dernierPrix);
-            this.PrixPanier -= dernierPrix;
+            if (dernierPrix != 0)
+            {
+                this.PrixPanier -= dernierPrix;
+            }
+            
             panierEnCours.Remove(dernierProduit);
         }
 
