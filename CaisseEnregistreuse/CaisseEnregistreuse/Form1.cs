@@ -21,9 +21,11 @@ namespace CaisseEnregistreuse
         private ReadingProducts rp; // Objet de la classe Reading Poducts
         private Dictionary<string, double> dicProdPrice; // Dictionnaire de stockage après lecture du fichier csv
         private List<Button> listButton; // Liste des boutons créés à partir du fichier csv et du dictionnaire précédent
-        private Dictionary<string, double> dicarticlesaisis;
+        private Dictionary<string, double> dicarticlesaisis; //dictionnaire des articles validé + prix
         private WriteTicket writeticket; 
         
+
+        //Ascesseurs 
         public List<string> DernierProduit { get => dernierProduit; set => dernierProduit = value; }
         public string Produit { get => produit; set => produit = value; }
         public Dictionary<string, double> Dicarticlesaisis { get => dicarticlesaisis; set => dicarticlesaisis = value; }
@@ -62,7 +64,7 @@ namespace CaisseEnregistreuse
 
             foreach (var kvp in panier.PanierEnCours)
             {
-                TextBox tb = new TextBox();
+                Label tb = new Label();
                 //on récupère le poids unitaire de l'article pour afficher le total du poids saisie
                 //si un article est saisi plusieur fois, les poids s'additionnent
                 double poidsunitart = dicProdPrice[kvp.Key];
@@ -70,8 +72,8 @@ namespace CaisseEnregistreuse
                 tb.Text = "___" + kvp.Key + " _____ " + nbkgsaisis + " Kg _____ " + +kvp.Value + " € ____";
                 Color blue = Color.GreenYellow; 
                 tb.BackColor= blue;
-                tb.Width=250; 
-                tb.ReadOnly = true;
+                tb.AutoSize = true;
+                tb.Margin = new Padding(5,10,5,5);  
                 flowLayoutPanel2.Controls.Add(tb);
             }
         }
@@ -117,6 +119,8 @@ namespace CaisseEnregistreuse
 
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
+
+            flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle; 
         }
 
         private void button_panier_Click(object sender, EventArgs e)
@@ -177,6 +181,7 @@ namespace CaisseEnregistreuse
             produit = null;
             //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
             writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
+
             this.colorBlack();
         }
 
@@ -234,9 +239,10 @@ namespace CaisseEnregistreuse
             prixKg = Double.Parse(substring2[0]);
             // On recolore tous les autres boutons articles en noir
             this.colorBlack();
+           
             // Puis on colore le bouton sélectionné en rouge
-            Color red = Color.Red;
-            (sender as Button).ForeColor = red;
+            Color orange = Color.Orange;
+            (sender as Button).ForeColor = orange;
         }
 
         private void button_fichier_Click(object sender, EventArgs e)
@@ -285,6 +291,11 @@ namespace CaisseEnregistreuse
         private void allTickets_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"ticketregister.txt");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
