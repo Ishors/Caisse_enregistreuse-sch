@@ -62,10 +62,10 @@
             // 
             this.textBox_poids.BackColor = System.Drawing.Color.White;
             this.textBox_poids.Enabled = false;
-            this.textBox_poids.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_poids.Location = new System.Drawing.Point(885, 211);
+            this.textBox_poids.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_poids.Location = new System.Drawing.Point(885, 222);
             this.textBox_poids.Name = "textBox_poids";
-            this.textBox_poids.Size = new System.Drawing.Size(157, 22);
+            this.textBox_poids.Size = new System.Drawing.Size(157, 34);
             this.textBox_poids.TabIndex = 2;
             // 
             // button_valider
@@ -73,7 +73,7 @@
             this.button_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button_valider.Enabled = false;
             this.button_valider.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_valider.Location = new System.Drawing.Point(885, 275);
+            this.button_valider.Location = new System.Drawing.Point(885, 302);
             this.button_valider.Name = "button_valider";
             this.button_valider.Size = new System.Drawing.Size(171, 52);
             this.button_valider.TabIndex = 3;
@@ -86,7 +86,7 @@
             this.button_vider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button_vider.Enabled = false;
             this.button_vider.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_vider.Location = new System.Drawing.Point(885, 346);
+            this.button_vider.Location = new System.Drawing.Point(885, 403);
             this.button_vider.Name = "button_vider";
             this.button_vider.Size = new System.Drawing.Size(171, 55);
             this.button_vider.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.button_paiement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button_paiement.Enabled = false;
             this.button_paiement.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_paiement.Location = new System.Drawing.Point(885, 445);
+            this.button_paiement.Location = new System.Drawing.Point(885, 498);
             this.button_paiement.Name = "button_paiement";
             this.button_paiement.Size = new System.Drawing.Size(171, 139);
             this.button_paiement.TabIndex = 5;
@@ -111,19 +111,20 @@
             // 
             this.textBox_prixPanier.BackColor = System.Drawing.Color.White;
             this.textBox_prixPanier.Enabled = false;
-            this.textBox_prixPanier.Location = new System.Drawing.Point(800, 598);
+            this.textBox_prixPanier.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_prixPanier.Location = new System.Drawing.Point(758, 599);
             this.textBox_prixPanier.Name = "textBox_prixPanier";
             this.textBox_prixPanier.ReadOnly = true;
-            this.textBox_prixPanier.Size = new System.Drawing.Size(61, 22);
+            this.textBox_prixPanier.Size = new System.Drawing.Size(82, 38);
             this.textBox_prixPanier.TabIndex = 6;
             // 
             // button_fichier
             // 
             this.button_fichier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.button_fichier.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_fichier.Location = new System.Drawing.Point(15, 626);
+            this.button_fichier.Location = new System.Drawing.Point(76, 535);
             this.button_fichier.Name = "button_fichier";
-            this.button_fichier.Size = new System.Drawing.Size(139, 59);
+            this.button_fichier.Size = new System.Drawing.Size(139, 65);
             this.button_fichier.TabIndex = 7;
             this.button_fichier.Text = "Ouvrir Fichier";
             this.button_fichier.UseVisualStyleBackColor = false;
@@ -134,9 +135,9 @@
             this.actualise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.actualise.Enabled = false;
             this.actualise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actualise.Location = new System.Drawing.Point(213, 626);
+            this.actualise.Location = new System.Drawing.Point(267, 535);
             this.actualise.Name = "actualise";
-            this.actualise.Size = new System.Drawing.Size(139, 59);
+            this.actualise.Size = new System.Drawing.Size(139, 65);
             this.actualise.TabIndex = 10;
             this.actualise.Text = "Charger Fichier";
             this.actualise.UseVisualStyleBackColor = false;
@@ -146,6 +147,7 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 12);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(846, 373);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -158,18 +160,19 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(421, 391);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(543, 391);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(440, 193);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(318, 193);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
             // lastTicket
             // 
             this.lastTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lastTicket.Enabled = false;
             this.lastTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastTicket.Location = new System.Drawing.Point(917, 642);
+            this.lastTicket.Location = new System.Drawing.Point(267, 424);
             this.lastTicket.Name = "lastTicket";
-            this.lastTicket.Size = new System.Drawing.Size(128, 46);
+            this.lastTicket.Size = new System.Drawing.Size(139, 65);
             this.lastTicket.TabIndex = 13;
             this.lastTicket.Text = "Imprimer dernier ticket";
             this.lastTicket.UseVisualStyleBackColor = false;
@@ -178,10 +181,11 @@
             // allTickets
             // 
             this.allTickets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.allTickets.Enabled = false;
             this.allTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allTickets.Location = new System.Drawing.Point(917, 590);
+            this.allTickets.Location = new System.Drawing.Point(76, 424);
             this.allTickets.Name = "allTickets";
-            this.allTickets.Size = new System.Drawing.Size(125, 46);
+            this.allTickets.Size = new System.Drawing.Size(139, 65);
             this.allTickets.TabIndex = 14;
             this.allTickets.Text = "Imprimer tous les tickets";
             this.allTickets.UseVisualStyleBackColor = false;
@@ -190,10 +194,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(890, 191);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(907, 179);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(135, 29);
             this.label1.TabIndex = 15;
             this.label1.Text = "Poids (kg) :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -201,10 +205,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(683, 603);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(564, 602);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(188, 32);
             this.label2.TabIndex = 16;
             this.label2.Text = "Prix TTC (€) : ";
             // 
@@ -214,7 +218,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1105, 697);
+            this.ClientSize = new System.Drawing.Size(1105, 685);
+            this.Controls.Add(this.textBox_poids);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.allTickets);
@@ -227,7 +232,6 @@
             this.Controls.Add(this.button_paiement);
             this.Controls.Add(this.button_vider);
             this.Controls.Add(this.button_valider);
-            this.Controls.Add(this.textBox_poids);
             this.Controls.Add(this.button_panier);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";

@@ -69,11 +69,9 @@ namespace CaisseEnregistreuse
                 //si un article est saisi plusieur fois, les poids s'additionnent
                 double poidsunitart = dicProdPrice[kvp.Key];
                 double nbkgsaisis = kvp.Value / poidsunitart;
-                tb.Text = "___" + kvp.Key + " _____ " + nbkgsaisis + " Kg _____ " + +kvp.Value + " € ____";
-                Color blue = Color.GreenYellow; 
-                tb.BackColor= blue;
+                tb.Text = "-" +kvp.Key+ " " + nbkgsaisis + " Kg : " + +kvp.Value + " € ";
                 tb.AutoSize = true;
-                tb.Margin = new Padding(5,10,5,5);  
+                tb.Font = new Font("Arial", 13);
                 flowLayoutPanel2.Controls.Add(tb);
             }
         }
@@ -150,8 +148,8 @@ namespace CaisseEnregistreuse
             button_paiement.Enabled = true;
             label2.Enabled = true;
             textBox_prixPanier.Enabled = true;
-            flowLayoutPanel2.Enabled = true; 
-
+            flowLayoutPanel2.Enabled = true;
+          
             panier.Inc = 1;
             //initialisation de la classe WriteTicket qui prendra le nouveau ticket
             writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
@@ -225,6 +223,10 @@ namespace CaisseEnregistreuse
             button_paiement.Enabled = false;
             label2.Enabled = false;
             textBox_prixPanier.Enabled = false;
+            allTickets.Enabled = false;
+            lastTicket.Enabled = false;
+            allTickets.Enabled = true;
+            lastTicket.Enabled = true;
             textBox_prixPanier.Text = "";
             flowLayoutPanel2.Controls.Clear();
         }
