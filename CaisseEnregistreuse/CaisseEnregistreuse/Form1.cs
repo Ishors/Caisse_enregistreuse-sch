@@ -231,8 +231,6 @@ namespace CaisseEnregistreuse
             button_paiement.Enabled = false;
             label2.Enabled = false;
             textBox_prixPanier.Enabled = false;
-            allTickets.Enabled = true;
-            lastTicket.Enabled = true;
             textBox_prixPanier.Text = "";
             flowLayoutPanel2.Controls.Clear();
         }
@@ -310,12 +308,27 @@ namespace CaisseEnregistreuse
 
         private void lastTicket_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"ticket.txt");
+            try
+            {
+                System.Diagnostics.Process.Start(@"ticket.txt");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Aucun ticket disponible");
+            }
+            
         }
 
         private void allTickets_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"ticketregister.txt");
+            try
+            {
+                System.Diagnostics.Process.Start(@"ticketregister.txt");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Aucun ticket disponible");
+            }
         }
     }
 }

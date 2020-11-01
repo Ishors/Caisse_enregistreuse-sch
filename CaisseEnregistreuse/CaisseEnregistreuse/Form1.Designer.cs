@@ -168,7 +168,6 @@
             // lastTicket
             // 
             this.lastTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lastTicket.Enabled = false;
             this.lastTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastTicket.Location = new System.Drawing.Point(267, 424);
             this.lastTicket.Name = "lastTicket";
@@ -181,7 +180,6 @@
             // allTickets
             // 
             this.allTickets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.allTickets.Enabled = false;
             this.allTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allTickets.Location = new System.Drawing.Point(76, 424);
             this.allTickets.Name = "allTickets";
