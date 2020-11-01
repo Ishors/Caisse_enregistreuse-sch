@@ -32,7 +32,6 @@ namespace CaisseEnregistreuse
         public void valider(string produit, double prix)
         {
             this.prixPanier = 0;
-
             if (PanierEnCours.TryGetValue(produit, out var nimp) == false)
             {
                 // On rentrent notre produit et sa quantité dans notre dictionary panierEnCours

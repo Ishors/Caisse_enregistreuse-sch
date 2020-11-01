@@ -83,23 +83,23 @@ namespace CaisseEnregistreuse
             {
                 poids = Double.Parse(textBox_poids.Text);
                 //si produit n'est pas nul
-                if (this.produit != null)  
+                if (poids * prixKg <= 0)
                 {
-                    panier.valider(produit, poids * prixKg);
+                    MessageBox.Show("Poids invalide");
                 }
-                //si produit null, on affiche MsgBox
                 else
                 {
-                    MessageBox.Show("Aucun produit selectionné");
-                }
-                this.AfficherListe(); 
-                // On récupère le dernier produit entré pour pouvoir supprimer le dernier article si besoin
-                dernierProduit.Add(produit);
-                // On modifie l'affichage de notre prix total du panier
-                textBox_prixPanier.Text = panier.PrixPanier.ToString();
+                    panier.valider(produit, poids * prixKg);
+                    this.AfficherListe();
+                    // On récupère le dernier produit entré pour pouvoir supprimer le dernier article si besoin
+                    dernierProduit.Add(produit);
+                    // On modifie l'affichage de notre prix total du panier
+                    textBox_prixPanier.Text = panier.PrixPanier.ToString();
+                }                
             }
-            catch (System.FormatException)
+            catch (System.Exception)
             {
+                //si produit null, on affiche MsgBox
                 if (produit == null)
                 {
                     MessageBox.Show("Veuillez entrer un produit");
@@ -112,12 +112,14 @@ namespace CaisseEnregistreuse
             // On réinitialise nos variables
             produit = null;
             poids = 0;
-            //initialisation de la classe WriteTicket qui prendra le nouveau ticket
-            writeticket = new WriteTicket(panier.PanierEnCours,dicProdPrice,panier.PrixPanier); 
-
+            if (panier.PanierEnCours.Count() > 0)
+            {
+                button_paiement.Enabled = true;
+                //initialisation de la classe WriteTicket qui prendra le nouveau ticket
+                writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
+            }
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
-
             flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle; 
         }
 
@@ -145,7 +147,7 @@ namespace CaisseEnregistreuse
             textBox_poids.Enabled = true;
             button_valider.Enabled = true;
             button_vider.Enabled = true;
-            button_paiement.Enabled = true;
+            
             label2.Enabled = true;
             textBox_prixPanier.Enabled = true;
             flowLayoutPanel2.Enabled = true;
@@ -177,9 +179,15 @@ namespace CaisseEnregistreuse
                 MessageBox.Show("Aucun produit dans le panier");
             }
             produit = null;
-            //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
-            writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
-
+            if (panier.PanierEnCours.Count() == 0)
+            {
+                button_paiement.Enabled = false;   
+            }
+            else
+            {
+                //initialisation de la classe WriteTicket qui prendra le panier en cours et les articles dispo
+                writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
+            }
             this.colorBlack();
         }
 
@@ -223,8 +231,6 @@ namespace CaisseEnregistreuse
             button_paiement.Enabled = false;
             label2.Enabled = false;
             textBox_prixPanier.Enabled = false;
-            allTickets.Enabled = false;
-            lastTicket.Enabled = false;
             allTickets.Enabled = true;
             lastTicket.Enabled = true;
             textBox_prixPanier.Text = "";
@@ -282,7 +288,24 @@ namespace CaisseEnregistreuse
 
         private void button_paiement_Click(object sender, EventArgs e)
         {
-            writeticket.Writeinfile(); 
+            writeticket.Writeinfile();
+            if (listButton != null && listButton.Any())
+            {
+                for (int i = 0; i < listButton.Count(); i++)
+                {
+                    listButton[i].Enabled = false;
+                }
+            }
+            label1.Enabled = false;
+            textBox_poids.Enabled = false;
+            textBox_poids.Text = "";
+            button_valider.Enabled = false;
+            button_vider.Enabled = false;
+            button_paiement.Enabled = false;
+            label2.Enabled = false;
+            textBox_prixPanier.Enabled = false;
+            textBox_prixPanier.Text = "";
+            flowLayoutPanel2.Controls.Clear();
         }
 
         private void lastTicket_Click(object sender, EventArgs e)
@@ -293,11 +316,6 @@ namespace CaisseEnregistreuse
         private void allTickets_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"ticketregister.txt");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
