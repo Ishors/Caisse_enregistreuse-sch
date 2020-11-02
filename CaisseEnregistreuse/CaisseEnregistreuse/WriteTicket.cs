@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.IO;
 namespace CaisseEnregistreuse
 {
     public class WriteTicket
@@ -10,7 +10,7 @@ namespace CaisseEnregistreuse
         private Dictionary<string, double> dicarticle; 
         private Dictionary<string, double> panierpaye;
         private double prixpanier; 
-        private System.IO.StreamWriter writer;
+        private StreamWriter writer;
 
         public WriteTicket(Dictionary<string, double> panierencours,Dictionary<string,double> dicarticle,double prixpanier)
         {
