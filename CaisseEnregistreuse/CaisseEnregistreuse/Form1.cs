@@ -18,7 +18,6 @@ namespace CaisseEnregistreuse
         private double poids; // Variable de stockage du poids entré
         private List<string> dernierProduit; // Liste permettant de retrouver le dernier produit entré
         private double prixKg; // Variable de stockage du prix au kg du produit sélectionnée
-        private ReadingProducts rp; // Objet de la classe Reading Poducts
         private Dictionary<string, double> dicProdPrice; // Dictionnaire de stockage après lecture du fichier csv
         private List<Button> listButton; // Liste des boutons créés à partir du fichier csv et du dictionnaire précédent
         private Dictionary<string, double> dicarticlesaisis; //dictionnaire des articles validé + prix
@@ -197,6 +196,7 @@ namespace CaisseEnregistreuse
             // Création d'un flowLayoutPanel dans lequel on va afficher futurs boutons
             flowLayoutPanel1.Controls.Clear();
             // Appel à la classe ReadingProducts qui lit dans notre fichier csv
+            ReadingProducts rp;
             rp = new ReadingProducts(openFileDialog1.FileName);
             // dicProdPrice dictionnaire Products_Price prend "Produit","prix" 
             this.dicProdPrice = rp.createDictionaryProducts();
