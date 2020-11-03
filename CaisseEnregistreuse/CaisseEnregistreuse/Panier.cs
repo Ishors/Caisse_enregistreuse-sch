@@ -12,15 +12,14 @@ namespace CaisseEnregistreuse
         private Boolean ok = false;
         private Dictionary<string,double> panierEnCours = new Dictionary<string, double>();
         private double prixPanier;
-        private int inc; 
 
 
         public Dictionary<string, double> PanierEnCours { get => panierEnCours; set => panierEnCours = value; }
         public double PrixPanier { get => prixPanier; set => prixPanier = value; }
-        public int Inc { get => inc; set => inc = value; }
 
         public Panier()
         {
+            this.ok = false;
         }
 
         public void open()
@@ -66,6 +65,7 @@ namespace CaisseEnregistreuse
         public void close()
         {
             this.ok = false;
+            panierEnCours.Clear();
         }
     }
 }

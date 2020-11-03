@@ -82,10 +82,10 @@ namespace CaisseEnregistreuse
             try
             {
                 poids = Double.Parse(textBox_poids.Text);
-                //si produit n'est pas nul
+
                 if (poids * prixKg <= 0)
                 {
-                    MessageBox.Show("Poids invalide");
+                    MessageBox.Show("Poids invalide pour "+ produit);
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace CaisseEnregistreuse
                     dernierProduit.Add(produit);
                     // On modifie l'affichage de notre prix total du panier
                     textBox_prixPanier.Text = panier.PrixPanier.ToString();
-                }                
+                }             
             }
             catch (System.Exception)
             {
@@ -104,9 +104,10 @@ namespace CaisseEnregistreuse
                 {
                     MessageBox.Show("Veuillez entrer un produit");
                 }
-                else if (produit.Equals("") == false)
+                //si produit pas null mais problème avec le prix, on affiche MsgBox
+                else if (produit.Equals("") == false )
                 {
-                    MessageBox.Show("Veuillez entrer un poids pour " + produit);
+                    MessageBox.Show("Poids invalide pour " + produit);
                 }
             }
             // On réinitialise nos variables
@@ -120,7 +121,8 @@ namespace CaisseEnregistreuse
             }
             // Décolore le bouton qui a été coloré lors du clic (et tous les autres d'ailleurs)
             this.colorBlack();
-            flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle; 
+            flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            textBox_poids.Text = "";
         }
 
         private void button_panier_Click(object sender, EventArgs e)
@@ -131,7 +133,7 @@ namespace CaisseEnregistreuse
             this.colorBlack();
             produit = null;
             
-            //vide l'affichage des articles saisie
+            // Vide l'affichage des articles saisis
             flowLayoutPanel2.Controls.Clear(); 
 
             // Création du panier
@@ -152,7 +154,6 @@ namespace CaisseEnregistreuse
             textBox_prixPanier.Enabled = true;
             flowLayoutPanel2.Enabled = true;
           
-            panier.Inc = 1;
             //initialisation de la classe WriteTicket qui prendra le nouveau ticket
             writeticket = new WriteTicket(panier.PanierEnCours, dicProdPrice, panier.PrixPanier);
         }
